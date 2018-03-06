@@ -15,7 +15,7 @@ export class CircleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.r = Math.min(this.height, this.width) / 2;
+    this.r = Math.min(this.height, this.width) / 2 - 1;
     this.cx = this.width / 2;
     this.cy = this.height / 2;
   }

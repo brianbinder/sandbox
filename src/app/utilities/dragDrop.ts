@@ -11,12 +11,15 @@ export const allowDrop = (event) => {
 }
 
 export const drag = (event) => {
-  event.dataTransfer.setData("text/html", event.target.id);
+  if (!event.target.id) {
+    event.target.setAttribute('id', 'id' + new Date().valueOf())
+  }
+  event.dataTransfer.setData("text", event.target.id);
 }
 
 export const dropCopy = (event) => {
   event.preventDefault();
-  const data = event.dataTransfer.getData("text/html");
+  const data = event.dataTransfer.getData("text");
   let nodeCopy: any = document.getElementById(data).cloneNode(true);
   nodeCopy.id = 'id' + (new Date()).getTime();
   event.target.appendChild(nodeCopy);
