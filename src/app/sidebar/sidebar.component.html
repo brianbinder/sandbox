@@ -9,20 +9,26 @@
     </div>
   </li>
   <li class="sidebar item square">
-    <svg attr.height.px="{{height}}"
-      attr.width.px="{{width}}"
-      draggable="true"
+    <div draggable="true"
       (dragstart)="handleDrag($event)">
-      <svg:g box [width]="width" [height]="height"></svg:g>
-    </svg>
+      <svg attr.height.px="{{height}}"
+        attr.width.px="{{width}}"
+        draggable="true"
+        (dragstart)="handleDrag($event)">
+        <svg:g box [width]="width" [height]="height"></svg:g>
+      </svg>
+    </div>
   </li>
   <li class="sidebar item circle">
-    <svg attr.height.px="{{height}}"
-      attr.width.px="{{width}}"
-      (dragstart)="handleDrag($event)"
-      draggable="true">
-      <svg:g circle [width]="width" [height]="height"></svg:g>
-    </svg>
+    <div draggable="true"
+      (dragstart)="handleDrag($event)">
+      <svg attr.height.px="{{height}}"
+        attr.width.px="{{width}}"
+        (dragstart)="handleDrag($event)"
+        draggable="true">
+        <svg:g circle [width]="width" [height]="height"></svg:g>
+      </svg>
+    </div>
   </li>
   <li class="test drag">
     <p draggable="true" (dragstart)="handleDrag($event)">Hello</p>
