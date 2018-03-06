@@ -14,7 +14,6 @@ export class TriangleComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('height:', this.height, 'width', this.width);
     this.points = `0 ${this.height}, ${this.width / 2} 0, ${this.width} ${this.height}`;
   }
 

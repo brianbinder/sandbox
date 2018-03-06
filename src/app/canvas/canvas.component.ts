@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { allowDrop, drag, dropCopy } from '../utilities/dragDrop';
 
 @Component({
   selector: 'app-canvas',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./canvas.component.scss']
 })
 export class CanvasComponent implements OnInit {
+  dropCopy = dropCopy;
+  allowDrop = allowDrop;
 
   constructor() {
     window.addEventListener('resize', this.size);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { allowDrop, drag, dropCopy } from '../utilities/dragDrop';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,15 +10,20 @@ export class SidebarComponent implements OnInit {
   width;
   height;
 
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
     const list = document.getElementsByClassName('sidebar list')[0];
-    console.log(list);
-    //this.width = list.getBoundingClientRect().width;
     this.width = 90 - 16;
     const fontSize = window.getComputedStyle(list, null).getPropertyValue('font-size');
     this.height = parseFloat(fontSize) * 2;
+  }
+
+  handleDrag(e) {
+    drag(e);
+    console.log('this is firing');
   }
 
 }
