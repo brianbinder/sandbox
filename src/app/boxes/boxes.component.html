@@ -1,0 +1,16 @@
+<ul class="sidebar list">
+  <!-- <li class="sidebar button shape"><mat-icon>warning</mat-icon></li>
+  <li class="sidebar button shape"><mat-icon>tab</mat-icon></li>
+  <li class="sidebar button shape"><mat-icon>error</mat-icon></li> -->
+  <li class="sidebar button shape triangle">
+    <svg (mousedown) ="mouseDown($event)"
+      (mouseup) = "mouseUp($event)"
+      (mousemove) = "mouseMove($event)"
+      height="900"
+      width="750">
+      <svg:g box *ngFor="let box of boxes" [box]="box">
+    </svg:g>
+  </svg>
+  </li>
+
+</ul>
