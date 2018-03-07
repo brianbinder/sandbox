@@ -8,14 +8,7 @@ import { allowDrop, drag, dropCopy } from '../utilities/dragDrop';
 })
 export class CanvasComponent implements OnInit {
   allowDrop = allowDrop;
-  elements: any[] = [{
-    type: 'square',
-    color: 'blue',
-    width: 20,
-    height: 20,
-    x: 10,
-    y: 10
-  }];
+  elements: any[] = [];
 
   constructor() {
     window.addEventListener('resize', this.size);

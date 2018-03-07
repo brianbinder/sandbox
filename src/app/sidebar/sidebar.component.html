@@ -7,7 +7,7 @@
       (dragstart)="drag($event)">
       <svg attr.height.px="{{height}}"
         attr.width.px="{{width}}">
-        <svg:g triangle [width]="width" [height]="height"></svg:g>
+        <svg:g triangle [width]="width" [height]="height" color="blue"></svg:g>
       </svg>
     </div>
   </li>
@@ -17,7 +17,7 @@
       (dragstart)="drag($event)">
       <svg attr.height.px="{{height}}"
         attr.width.px="{{width}}">
-        <svg:g box [width]="width" [height]="height"></svg:g>
+        <svg:g box [width]="width" [height]="height" color="red"></svg:g>
       </svg>
     </div>
   </li>
@@ -27,7 +27,7 @@
       (dragstart)="drag($event)">
       <svg attr.height.px="{{height}}"
         attr.width.px="{{width}}">
-        <svg:g circle [width]="width" [height]="height"></svg:g>
+        <svg:g circle [width]="width" [height]="height" color="yellow"></svg:g>
       </svg>
     </div>
   </li>

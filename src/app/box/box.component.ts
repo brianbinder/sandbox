@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BoxComponent implements OnInit{
   @Input() width;
   @Input() height;
+  @Input() color;
   setHeight;
   setWidth;
   x;

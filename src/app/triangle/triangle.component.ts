@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TriangleComponent implements OnInit {
   @Input() height;
   @Input() width;
+  @Input() color;
   points;
 
   constructor() {

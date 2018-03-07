@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CircleComponent implements OnInit {
   @Input() height;
   @Input() width;
+  @Input() color;
   cx;
   cy;
   r;

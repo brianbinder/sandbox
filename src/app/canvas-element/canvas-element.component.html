@@ -6,15 +6,18 @@
     <svg:g *ngIf="type === 'triangle'"
       triangle
       [width]="width"
-      [height]="height"></svg:g>
+      [height]="height"
+      [color]="color"></svg:g>
     <svg:g *ngIf="type === 'square'"
       box
       [width]="width"
-      [height]="height"></svg:g>
+      [height]="height"
+      [color]="color"></svg:g>
     <svg:g *ngIf="type === 'circle'"
       circle
       [width]="width"
-      [height]="height"></svg:g>
+      [height]="height"
+      [color]="color"></svg:g>
   </svg>
 </div>
 
