@@ -28,26 +28,28 @@ export class CanvasComponent implements OnInit {
 
   handleDrop(event) {
     event.preventDefault();
-    let element;
     const data = JSON.parse(event.dataTransfer.getData("text"));
     const type = data.id.split(':')[0];
     const id = data.id.split(':')[1];
     if (type !== 'canvasElement') {
-      element = {
-        type,
-        id: `canvasElement:${Math.floor(Math.random() * 1000000)}`,
-        color: randomColor(),
-        width: 20,
-        height: 20,
-        x: '40px',
-        y: '40px'
-      };
-      this.elements.push(element);
+      this.addElement(type);
     } else {
-      element = this.elements.filter(element => element.id.split(':')[1] === id)[0];
+      const element = this.elements.filter(element => element.id.split(':')[1] === id)[0];
       element.x = `${Number(element.x.slice(0, -2)) + event.clientX - data.xStart}px`;
-      element.y = `${Number(element.y.slice(0, -2)) + event.clientY - data.yStart}px`;
+      element.y = `${Number(element.y.slice(0, -2)) + event.clientY - data.yStart}px`;     
     }
+  }
+
+  addElement(type) {
+    this.elements.push({
+      type,
+      id: `canvasElement:${Math.floor(Math.random() * 1000000)}`,
+      color: randomColor(),
+      width: 20,
+      height: 20,
+      x: '40px',
+      y: '40px'
+    });
   }
 
 }
