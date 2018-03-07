@@ -1,4 +1,9 @@
+@import "../../styles.scss";
+
 .canvas {
-  border: solid black 0.2em;
+  border: solid $background-color 0.2em;
   position: fixed;
+  background-color: white;
+  height: 97vh;
+  width: 85vw;
 }

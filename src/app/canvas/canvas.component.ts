@@ -19,11 +19,11 @@ export class CanvasComponent implements OnInit {
   }
 
   size() {
-    let height = window.innerHeight;
-    let width = 0.85 * window.innerWidth;
-    const canvas = document.getElementsByClassName('canvas')[0] as HTMLElement;
-    canvas.style.height = `${height - 30}px`;
-    canvas.style.width = `${width}px`;
+    //let height = window.innerHeight;
+    // let width = 0.85 * window.innerWidth;
+    // const canvas = document.getElementsByClassName('canvas')[0] as HTMLElement;
+    //canvas.style.height = `${height - 30}px`;
+    // canvas.style.width = `${width}px`;
   }
 
   handleDrop(event) {
