@@ -81,8 +81,8 @@ export class CanvasComponent implements OnInit {
       type,
       id: `canvasElement:${Math.floor(Math.random() * 1000000)}`,
       color: randomColor(),
-      width: 20,
-      height: 20,
+      width: 40,
+      height: 40,
       x: '40px',
       y: '40px'
     });

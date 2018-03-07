@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 
 @Component({
   selector: '[circle]',
   templateUrl: './circle.component.html',
   styleUrls: ['./circle.component.scss']
 })
-export class CircleComponent implements OnInit {
+export class CircleComponent {
   @Input() height;
   @Input() width;
   @Input() color;
@@ -15,7 +15,7 @@ export class CircleComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.r = Math.min(this.height, this.width) / 2 - 1;
     this.cx = this.width / 2;
     this.cy = this.height / 2;
