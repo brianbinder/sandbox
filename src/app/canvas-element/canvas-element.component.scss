@@ -1,3 +1,36 @@
+$handleSize: 10%;
+
+
 .canvasElement {
   position: absolute;
+  z-index: 1;
+}
+.handle {
+  position: absolute;
+  height: $handleSize;
+  width: $handleSize;
+  visibility: hidden;
+  background-color: #288EF4;
+  z-index: -1;
+}
+.handle.active {
+  z-index: 2;
+  visibility: visible;
+}
+
+.handle.topLeft {
+  top: 0;
+  left: 0;
+}
+.handle.topRight {
+  top: 0;
+  left: 100% - $handleSize;
+}
+.handle.bottomLeft {
+  top: 100% - $handleSize;
+  left: 0;
+}
+.handle.bottomRight {
+  top: 100% - $handleSize;
+  left: 100% - $handleSize;
 }

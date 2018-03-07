@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-//import { drag } from '../utilities/dragDrop';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-canvas-element',
@@ -19,6 +19,11 @@ export class CanvasElementComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+  }
+
+  showHandles(event) {
+    console.log($(event.target).parents('.canvasElement').children('.handle'));
+    $(event.target).parents('.canvasElement').children('.handle').toggleClass('active');
   }
 
 }
