@@ -23,7 +23,13 @@ export class CanvasElementComponent implements OnInit {
 
   showHandles(event) {
     console.log($(event.target).parents('.canvasElement').children('.handle'));
-    $(event.target).parents('.canvasElement').children('.handle').toggleClass('active');
+    const handles = $(event.target).parents('.canvasElement').children('.handle');
+    if ($(handles[0]).hasClass('active')) {
+      $('.canvas').find('.handle').removeClass('active');
+    } else {
+      $('.canvas').find('.handle').removeClass('active');
+      handles.addClass('active');
+    }
   }
 
 }
