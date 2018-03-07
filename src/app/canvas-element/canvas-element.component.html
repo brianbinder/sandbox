@@ -1,8 +1,9 @@
 <div
   appDraggable
   class="canvasElement"
-  attr.style.top="{{y}}"
-  attr.style.left="{{x}}">
+  [style.top]="y"
+  [style.left]="x"
+  id={{id}}>
   <svg attr.height.px="{{height}}"
     attr.width.px="{{width}}">
     <svg:g *ngIf="type === 'triangle'"
@@ -22,10 +23,3 @@
       [color]="color"></svg:g>
   </svg>
 </div>
-
-
-<!-- <svg:g [triangle]="type === 'triangle' ? true : undefined"
-      [square]="type === 'square' ? true : undefined"
-      [circle]="type === 'circle' ? true : undefined"
-      [width]="width"
-      [height]="height"></svg:g> -->

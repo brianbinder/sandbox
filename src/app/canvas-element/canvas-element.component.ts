@@ -13,8 +13,10 @@ export class CanvasElementComponent implements OnInit {
   @Input() height;
   @Input() x;
   @Input() y;
+  @Input() id;
 
-  constructor() { }
+
+  constructor() {}
 
   ngOnInit() {
   }

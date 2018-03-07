@@ -12,12 +12,14 @@ export class DraggableDirective {
   @HostListener('dragstart', ['$event'])
   onDragStart(event) {
     const type = event.target.className;
+    const time = Math.floor(Math.random() * 1000000);
+    const id = `${type}:${time}`;
     if (!event.target.id) {
-      event.target.setAttribute('id', `${type}:${new Date().valueOf()}`)
+      event.target.setAttribute('id', id);
+      event.dataTransfer.setData("text", id);
+    } else {
+      event.dataTransfer.setData("text", event.target.id);      
     }
-    event.dataTransfer.setData("text", event.target.id);
-    // const elementToBeDragged = event.target.getElementsByTagName('circle')[0];
-    // event.dataTransfer.setData('text', elementToBeDragged.id);
   }
 
   @HostListener('document:dragover', ['$event'])

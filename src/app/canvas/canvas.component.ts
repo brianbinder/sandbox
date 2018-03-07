@@ -28,21 +28,25 @@ export class CanvasComponent implements OnInit {
 
   handleDrop(event) {
     event.preventDefault();
+    let element;
     const data = event.dataTransfer.getData("text");
     const type = data.split(':')[0];
+    const id = data.split(':')[1];
     if (type !== 'canvasElement') {
-      const element = {
+      element = {
         type,
+        id: `canvasElement:${Math.floor(Math.random() * 1000000)}`,
         color: randomColor(),
         width: 20,
         height: 20,
-        x: 10,
-        y: 10
+        x: '40px',
+        y: '40px'
       };
       this.elements.push(element);
-      console.log('elements: ', this.elements);      
     } else {
-      console.log(event);
+      element = this.elements.filter(element => element.id.split(':')[1] === id)[0];
+      element.x = `${Number(element.x.slice(0, -2)) + event.offsetX}px`;
+      element.y = `${Number(element.y.slice(0, -2)) + event.offsetY}px`;
     }
   }
 
