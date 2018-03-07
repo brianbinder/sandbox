@@ -5,10 +5,10 @@
   [style.top]="y"
   [style.left]="x"
   id={{id}}>
-  <div class="handle topLeft"></div>
-  <div class="handle topRight"></div>
-  <div class="handle bottomLeft"></div>
-  <div class="handle bottomRight"></div>
+  <div appDraggable class="handle topLeft"></div>
+  <div appDraggable class="handle topRight"></div>
+  <div appDraggable class="handle bottomLeft"></div>
+  <div appDraggable class="handle bottomRight"></div>
   <svg attr.height.px="{{height}}"
     attr.width.px="{{width}}">
     <svg:g *ngIf="type === 'triangle'"

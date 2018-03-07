@@ -31,16 +31,52 @@ export class CanvasComponent implements OnInit {
     const data = JSON.parse(event.dataTransfer.getData("text"));
     const type = data.id.split(':')[0];
     const id = data.id.split(':')[1];
-    if (type !== 'canvasElement') {
+    const moveX = event.clientX - data.xStart;
+    const moveY = event.clientY - data.yStart;
+    const element = this.elements.filter(element => element.id.split(':')[1] === id)[0];
+    if (type !== 'canvasElement' && !type.includes('handle')) {
+      //add an element to the canvas when it is dropped in from sidebar
       this.addElement(type);
+    } else if (!type.includes('handle')) {
+      //move and element when it's dragged
+      element.x = `${Number(element.x.slice(0, -2)) + moveX}px`;
+      element.y = `${Number(element.y.slice(0, -2)) + moveY}px`;     
     } else {
-      const element = this.elements.filter(element => element.id.split(':')[1] === id)[0];
-      element.x = `${Number(element.x.slice(0, -2)) + event.clientX - data.xStart}px`;
-      element.y = `${Number(element.y.slice(0, -2)) + event.clientY - data.yStart}px`;     
+      //resize an element when a handlebar is dragged
+      console.log('element: ', element);
+      this.resize(element, data, moveX, moveY)
     }
   }
 
+  resize(element, data, moveX, moveY) {
+    let transformIndex;
+    const xStart = Number(element.x.slice(0, -2));
+    const yStart = Number(element.y.slice(0, -2));
+    const xTransform = [ //[x, width]
+      [1, -1], //topLeft
+      [0, 1], //topRight
+      [1, -1], //bottomLeft
+      [0, 1] //bottomRight
+    ];
+    const yTransform = [ //[y, height]
+      [1, -1], //topLeft
+      [1, -1], //topRight
+      [0, 1], //bottomLeft
+      [0, 1] //bottomRight
+    ];
+    if (data.id.includes('topLeft')) transformIndex = 0;
+    if (data.id.includes('topRight')) transformIndex = 1;
+    if (data.id.includes('bottomLeft')) transformIndex = 2;
+    if (data.id.includes('bottomRight')) transformIndex = 3;
+    element.x = xStart + xTransform[transformIndex][0] * moveX + 'px';
+    element.y = yStart + yTransform[transformIndex][0] * moveY + 'px';
+    element.width = element.width + xTransform[transformIndex][1] * moveX;
+    element.height = element.height + yTransform[transformIndex][1] * moveY;
+
+  }
+
   addElement(type) {
+    console.log('oh we\'re adding it!');
     this.elements.push({
       type,
       id: `canvasElement:${Math.floor(Math.random() * 1000000)}`,

@@ -1,4 +1,5 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
+import $ from 'jquery';
 
 @Directive({
   selector: '[appDraggable]'
@@ -13,8 +14,13 @@ export class DraggableDirective {
   onDragStart(event) {
     const type = event.target.className;
     const time = Math.floor(Math.random() * 1000000);
-    let id;    
-    if (!event.target.id) {
+    let id;
+    if ($(event.target).hasClass('handle')) {
+      const elementId=$(event.target).parent('.canvasElement').attr('id').split(':')[1];
+      id = `${type}:${elementId}`;
+      console.log(id);
+    }    
+    else if (!event.target.id) {
       id = `${type}:${time}`;
       event.target.setAttribute('id', id);
     } else {
