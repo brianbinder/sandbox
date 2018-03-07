@@ -1,9 +1,18 @@
 .sidebar {
   list-style:  none;
   padding-left: .5em;
-  padding-right: 1em;
+  padding-right: .5em;
+  text-align: center;
 }
 
 .item {
   padding-bottom: 1em;
+}
+
+// .sidebar.list {
+//   text-align: center;
+// }
+
+.square, .triangle, .circle {
+  text-align: center;
 }

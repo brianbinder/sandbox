@@ -17,10 +17,11 @@ export class BoxComponent {
   constructor() { }
 
   ngOnChanges() {
-    this.setWidth = Math.min(this.width, this.height);
-    this.setHeight = Math.min(this.width, this.height);
-    this.x = (this.width - this.setWidth) / 2;
-    this.y = (this.height - this.setHeight) / 2;
+    
+    // this.setWidth = Math.min(this.width, this.height);
+    // this.setHeight = Math.min(this.width, this.height);
+    // this.x = (this.width - this.setWidth) / 2;
+    // this.y = (this.height - this.setHeight) / 2;
   }
 
 }
