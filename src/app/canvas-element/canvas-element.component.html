@@ -1,0 +1,26 @@
+<div draggable="true"
+  (dragstart)="handleDrag($event)"
+  class="canvasElement">
+  <svg attr.height.px="{{height}}"
+    attr.width.px="{{width}}">
+    <svg:g *ngIf="type === 'triangle'"
+      triangle
+      [width]="width"
+      [height]="height"></svg:g>
+    <svg:g *ngIf="type === 'square'"
+      box
+      [width]="width"
+      [height]="height"></svg:g>
+    <svg:g *ngIf="type === 'circle'"
+      circle
+      [width]="width"
+      [height]="height"></svg:g>
+  </svg>
+</div>
+
+
+<!-- <svg:g [triangle]="type === 'triangle' ? true : undefined"
+      [square]="type === 'square' ? true : undefined"
+      [circle]="type === 'circle' ? true : undefined"
+      [width]="width"
+      [height]="height"></svg:g> -->

@@ -1,4 +1,11 @@
 <div class="canvas"
-  (drop)="dropCopy($event)"
+  (drop)="handleDrop($event)"
   (dragover)="allowDrop($event)">
+  <app-canvas-element *ngFor="let element of elements"
+    [type]="element.type"
+    [color]="element.color"
+    [width]="element.width"
+    [height]="element.height"
+    [x]="element.x"
+    [y]="element.y"></app-canvas-element>
 </div>

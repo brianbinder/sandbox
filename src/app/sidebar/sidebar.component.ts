@@ -9,6 +9,7 @@ import { allowDrop, drag, dropCopy } from '../utilities/dragDrop';
 export class SidebarComponent implements OnInit {
   width;
   height;
+  drag = drag;
 
 
   constructor() {
@@ -19,11 +20,6 @@ export class SidebarComponent implements OnInit {
     this.width = 90 - 16;
     const fontSize = window.getComputedStyle(list, null).getPropertyValue('font-size');
     this.height = parseFloat(fontSize) * 2;
-  }
-
-  handleDrag(e) {
-    drag(e);
-    console.log('this is firing');
   }
 
 }

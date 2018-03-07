@@ -1,7 +1,10 @@
+<!-- svg elements do not support drag and drop events forced to wrap them in divs -->
+
 <ul class="sidebar list">
   <li class="sidebar item triangle">
     <div draggable="true"
-      (dragstart)="handleDrag($event)">
+      class="triangle"
+      (dragstart)="drag($event)">
       <svg attr.height.px="{{height}}"
         attr.width.px="{{width}}">
         <svg:g triangle [width]="width" [height]="height"></svg:g>
@@ -10,27 +13,25 @@
   </li>
   <li class="sidebar item square">
     <div draggable="true"
-      (dragstart)="handleDrag($event)">
+      class="square"
+      (dragstart)="drag($event)">
       <svg attr.height.px="{{height}}"
-        attr.width.px="{{width}}"
-        draggable="true"
-        (dragstart)="handleDrag($event)">
+        attr.width.px="{{width}}">
         <svg:g box [width]="width" [height]="height"></svg:g>
       </svg>
     </div>
   </li>
   <li class="sidebar item circle">
     <div draggable="true"
-      (dragstart)="handleDrag($event)">
+      class="circle"
+      (dragstart)="drag($event)">
       <svg attr.height.px="{{height}}"
-        attr.width.px="{{width}}"
-        (dragstart)="handleDrag($event)"
-        draggable="true">
+        attr.width.px="{{width}}">
         <svg:g circle [width]="width" [height]="height"></svg:g>
       </svg>
     </div>
   </li>
   <li class="test drag">
-    <p draggable="true" (dragstart)="handleDrag($event)">Hello</p>
+    <p class="text" draggable="true" (dragstart)="drag($event)">Hello</p>
   </li>
 </ul>

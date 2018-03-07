@@ -11,6 +11,7 @@ import { TriangleComponent } from './triangle/triangle.component';
 import { SvgComponent } from './svg/svg.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CircleComponent } from './circle/circle.component';
+import { CanvasElementComponent } from './canvas-element/canvas-element.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CircleComponent } from './circle/circle.component';
     TriangleComponent,
     SvgComponent,
     SidebarComponent,
-    CircleComponent
+    CircleComponent,
+    CanvasElementComponent
   ],
   imports: [
     BrowserModule,

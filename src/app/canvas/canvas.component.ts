@@ -7,8 +7,15 @@ import { allowDrop, drag, dropCopy } from '../utilities/dragDrop';
   styleUrls: ['./canvas.component.scss']
 })
 export class CanvasComponent implements OnInit {
-  dropCopy = dropCopy;
   allowDrop = allowDrop;
+  elements: any[] = [{
+    type: 'square',
+    color: 'blue',
+    width: 20,
+    height: 20,
+    x: 10,
+    y: 10
+  }];
 
   constructor() {
     window.addEventListener('resize', this.size);
@@ -24,6 +31,26 @@ export class CanvasComponent implements OnInit {
     const canvas = document.getElementsByClassName('canvas')[0] as HTMLElement;
     canvas.style.height = `${height - 30}px`;
     canvas.style.width = `${width}px`;
+  }
+
+  handleDrop(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text");
+    if (data.length > 1) {
+      const type = data.split(':')[0];
+      const element = {
+        type,
+        color: 'blue',
+        width: 20,
+        height: 20,
+        x: 10,
+        y: 10
+      };
+      this.elements.push(element);
+      console.log('elements: ', this.elements);      
+    } else {
+
+    }
   }
 
 }
