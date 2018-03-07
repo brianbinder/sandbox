@@ -83,8 +83,8 @@ export class CanvasComponent implements OnInit {
       color: randomColor(),
       width: 40,
       height: 40,
-      x: x + 'px',
-      y: y + 'px'
+      x: x - 20 + 'px',
+      y: y - 20 + 'px'
     });
   }
 
