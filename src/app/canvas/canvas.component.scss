@@ -2,7 +2,8 @@
 
 .canvas {
   border: solid $background-color 0.2em;
-  background-color: white;
+  background-color: rgba(217, 223, 247, 0.77);
   height: 97vh;
   width: 85vw;
+  position: fixed;
 }
