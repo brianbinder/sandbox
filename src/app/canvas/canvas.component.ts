@@ -36,7 +36,8 @@ export class CanvasComponent implements OnInit {
     const element = this.elements.filter(element => element.id.split(':')[1] === id)[0];
     if (type !== 'canvasElement' && !type.includes('handle')) {
       //add an element to the canvas when it is dropped in from sidebar
-      this.addElement(type);
+      console.log('event: ', event);
+      this.addElement(type, event.layerX, event.layerY);
     } else if (!type.includes('handle')) {
       //move and element when it's dragged
       element.x = `${Number(element.x.slice(0, -2)) + moveX}px`;
@@ -75,16 +76,15 @@ export class CanvasComponent implements OnInit {
 
   }
 
-  addElement(type) {
-    console.log('oh we\'re adding it!');
+  addElement(type, x, y) {
     this.elements.push({
       type,
       id: `canvasElement:${Math.floor(Math.random() * 1000000)}`,
       color: randomColor(),
       width: 40,
       height: 40,
-      x: '40px',
-      y: '40px'
+      x: x + 'px',
+      y: y + 'px'
     });
   }
 
