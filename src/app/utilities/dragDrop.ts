@@ -1,11 +1,4 @@
 
-// interface IDragDrop {
-//   allowDrop: (event: MouseEvent) => void;
-//   drag: (event: MouseEvent) => void;
-//   dropCopy: (event: MouseEvent) => void;
-// }
-
-
 export const allowDrop = (event) => {
   event.preventDefault();
 }
@@ -13,7 +6,6 @@ export const allowDrop = (event) => {
 export const drag = (event) => {
   const type = event.target.className;
   event.target.setAttribute('id', `${type}:${new Date().valueOf()}`)
-  console.log('target:', event.target.id);
   event.dataTransfer.setData("text", event.target.id);
 }
 

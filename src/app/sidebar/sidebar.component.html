@@ -2,9 +2,9 @@
 
 <ul class="sidebar list">
   <li class="sidebar item triangle">
-    <div draggable="true"
+    <div appDraggable
       class="triangle"
-      (dragstart)="drag($event)">
+      >
       <svg attr.height.px="{{height}}"
         attr.width.px="{{width}}">
         <svg:g triangle [width]="width" [height]="height" color="blue"></svg:g>
@@ -12,9 +12,9 @@
     </div>
   </li>
   <li class="sidebar item square">
-    <div draggable="true"
+    <div appDraggable
       class="square"
-      (dragstart)="drag($event)">
+      >
       <svg attr.height.px="{{height}}"
         attr.width.px="{{width}}">
         <svg:g box [width]="width" [height]="height" color="red"></svg:g>
@@ -22,9 +22,9 @@
     </div>
   </li>
   <li class="sidebar item circle">
-    <div draggable="true"
+    <div appDraggable
       class="circle"
-      (dragstart)="drag($event)">
+      >
       <svg attr.height.px="{{height}}"
         attr.width.px="{{width}}">
         <svg:g circle [width]="width" [height]="height" color="yellow"></svg:g>

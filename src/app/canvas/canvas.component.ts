@@ -29,8 +29,8 @@ export class CanvasComponent implements OnInit {
   handleDrop(event) {
     event.preventDefault();
     const data = event.dataTransfer.getData("text");
-    if (data.length > 1) {
-      const type = data.split(':')[0];
+    const type = data.split(':')[0];
+    if (type !== 'canvasElement') {
       const element = {
         type,
         color: randomColor(),
@@ -42,7 +42,7 @@ export class CanvasComponent implements OnInit {
       this.elements.push(element);
       console.log('elements: ', this.elements);      
     } else {
-
+      console.log(event);
     }
   }
 

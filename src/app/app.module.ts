@@ -12,6 +12,8 @@ import { SvgComponent } from './svg/svg.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CircleComponent } from './circle/circle.component';
 import { CanvasElementComponent } from './canvas-element/canvas-element.component';
+import { DraggableDirective } from './draggable.directive';
+import { DroppableDirective } from './droppable.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CanvasElementComponent } from './canvas-element/canvas-element.componen
     SvgComponent,
     SidebarComponent,
     CircleComponent,
-    CanvasElementComponent
+    CanvasElementComponent,
+    DraggableDirective,
+    DroppableDirective
   ],
   imports: [
     BrowserModule,

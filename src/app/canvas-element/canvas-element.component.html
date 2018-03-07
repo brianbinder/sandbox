@@ -1,6 +1,8 @@
-<div draggable="true"
-  (dragstart)="handleDrag($event)"
-  class="canvasElement">
+<div
+  appDraggable
+  class="canvasElement"
+  attr.style.top="{{y}}"
+  attr.style.left="{{x}}">
   <svg attr.height.px="{{height}}"
     attr.width.px="{{width}}">
     <svg:g *ngIf="type === 'triangle'"

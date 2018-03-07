@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+//import { drag } from '../utilities/dragDrop';
 
 @Component({
   selector: 'app-canvas-element',
