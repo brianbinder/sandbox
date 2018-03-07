@@ -29,9 +29,9 @@ export class CanvasComponent implements OnInit {
   handleDrop(event) {
     event.preventDefault();
     let element;
-    const data = event.dataTransfer.getData("text");
-    const type = data.split(':')[0];
-    const id = data.split(':')[1];
+    const data = JSON.parse(event.dataTransfer.getData("text"));
+    const type = data.id.split(':')[0];
+    const id = data.id.split(':')[1];
     if (type !== 'canvasElement') {
       element = {
         type,
@@ -45,8 +45,8 @@ export class CanvasComponent implements OnInit {
       this.elements.push(element);
     } else {
       element = this.elements.filter(element => element.id.split(':')[1] === id)[0];
-      element.x = `${Number(element.x.slice(0, -2)) + event.offsetX}px`;
-      element.y = `${Number(element.y.slice(0, -2)) + event.offsetY}px`;
+      element.x = `${Number(element.x.slice(0, -2)) + event.clientX - data.xStart}px`;
+      element.y = `${Number(element.y.slice(0, -2)) + event.clientY - data.yStart}px`;
     }
   }
 
