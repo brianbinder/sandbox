@@ -33,7 +33,7 @@ export class CanvasComponent implements OnInit {
       const type = data.split(':')[0];
       const element = {
         type,
-        color: 'blue',
+        color: randomColor(),
         width: 20,
         height: 20,
         x: 10,
@@ -47,3 +47,11 @@ export class CanvasComponent implements OnInit {
   }
 
 }
+
+function randomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r},${g},${b})`
+}
+
